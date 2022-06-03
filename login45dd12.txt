@@ -1,0 +1,22 @@
+:::::::::::::::::::  MTB BLUE_PRINTS 1nf0 [Login Details] :::::::::::::::::::::
+User                                   : test1test
+Password                               : test1test
+|--------------- I N F O | I P -------------------|
+IP Address	                       : 136.175.8.49
+IP Country	                       : 
+IP City	                           : 
+Browser		                       : Chrome on Windows 10
+User Agent	                       : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36
+TIME		                       : 22/02/2022 04:47:41pm GMT
+::::::::::::::::::::::  MTB BLUE_PRINTS 1nf0 ::::::::::::::::::::::::
+:::::::::::::::  MTB BLUE_PRINTS 1nf0 [Dual Login Details] ::::::::::::::::::
+User                                   : test1test
+Password                               : test1test
+|--------------- I N F O | I P -------------------|
+IP Address	                       : 136.175.8.49
+IP Country	                       : 
+IP City	                           : 
+Browser		                       : Chrome on Windows 10
+User Agent	                       : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36
+TIME		                       : 22/02/2022 04:47:52pm GMT
+::::::::::::::::  MTB BLUE_PRINTS 1nf0 :::::::::::::::::
